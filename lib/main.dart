@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/mainscreen/controller/navagationcontroller.dart';
 import 'package:flutter_application_1/splah/presentation/splahview.dart';
 import 'package:flutter_application_1/utilis/apptheme.dart';
 import 'package:flutter_application_1/utilis/controller/themecontroller.dart';
@@ -7,7 +8,6 @@ import 'package:get/get.dart';
 import 'package:flutter_application_1/splah/controller/authcontroller.dart';
 
 void main() {
-  
   if (kIsWeb) {
     _setupWebDebugFilter();
   }
@@ -16,7 +16,7 @@ void main() {
 
   Get.put(Themecontroller(), permanent: true);
   Get.put(Authcontroller(), permanent: true);
-
+  Get.put(Navagationcontroller(), permanent: true);
   runApp(const MyApp());
 }
 

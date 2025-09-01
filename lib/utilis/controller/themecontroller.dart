@@ -9,7 +9,7 @@ class Themecontroller extends GetxController {
 
 
   bool _loadTheme() => _box.read(_key) ?? false;
-   //bool get isdarkMode => _loadTheme();
+   bool get isdarkMode => _loadTheme();
    ThemeMode get themeMode => _loadTheme() ? ThemeMode.dark : ThemeMode.light;
   void savetheme() {
     _box.write(_key, !_loadTheme());

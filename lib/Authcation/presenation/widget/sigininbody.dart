@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Authcation/presenation/Signupview.dart';
 import 'package:flutter_application_1/Authcation/presenation/passwordview.dart';
+import 'package:flutter_application_1/mainscreen/presentation/mainscreenview.dart';
 import 'package:flutter_application_1/splah/controller/authcontroller.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
 import 'package:get/get.dart';
@@ -10,7 +11,7 @@ import 'package:flutter_application_1/Authcation/presenation/widget/custom_textf
 void handleSiginin() {
   final Authcontroller authController = Get.find<Authcontroller>();
   authController.loginin();
-  //Get.off(page)
+  Get.off(() => Mainscreenview());
 }
 
 class Signinbody extends StatelessWidget {
