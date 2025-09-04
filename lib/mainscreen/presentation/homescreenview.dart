@@ -22,83 +22,85 @@ class Homescreenbody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Row(
-              children: [
-                CircleAvatar(
-                  radius: 20,
-                  backgroundImage: AssetImage('assets/images/avatar.jpg'),
-                ),
-                SizedBox(width: 12),
-                Column(
-                  children: [
-                    Text(
-                      'Hello Alex',
-                      style: TextStyle(color: Colors.grey, fontSize: 14),
-                    ),
-                    Text(
-                      'Good Morning',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 20,
+                    backgroundImage: AssetImage('assets/images/avatar.jpg'),
+                  ),
+                  SizedBox(width: 12),
+                  Column(
+                    children: [
+                      Text(
+                        'Hello Alex',
+                        style: TextStyle(color: Colors.grey, fontSize: 14),
                       ),
-                    ),
-                  ],
-                ),
-                const Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.notifications_outlined),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.shopping_bag_outlined),
-                ),
-                GetBuilder<Themecontroller>(
-                  builder:
-                      (controller) => IconButton(
-                        onPressed: () {
-                          controller.ToggleTheme();
-                        },
-                        icon: Icon(
-                          controller.isdarkMode
-                              ? Icons.light_mode
-                              : Icons.dark_mode,
+                      Text(
+                        'Good Morning',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
                         ),
                       ),
-                ),
-              ],
-            ),
-          ),
-          Customsearchbar(),
-          Catergroychips(),
-          Salebaner(),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 18, vertical: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Popular Product',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Text(
-                    'See All',
-                    style: TextStyle(color: Theme.of(context).primaryColor),
+                    ],
                   ),
-                ),
-              ],
+                  const Spacer(),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.notifications_outlined),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.shopping_bag_outlined),
+                  ),
+                  GetBuilder<Themecontroller>(
+                    builder:
+                        (controller) => IconButton(
+                          onPressed: () {
+                            controller.ToggleTheme();
+                          },
+                          icon: Icon(
+                            controller.isdarkMode
+                                ? Icons.light_mode
+                                : Icons.dark_mode,
+                          ),
+                        ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          //product Grid
-          Productgird(),
-        ],
+            Customsearchbar(),
+            Catergroychips(),
+            Salebaner(),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Popular Product',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      'See All',
+                      style: TextStyle(color: Theme.of(context).primaryColor),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            //product Grid
+            Productgird(),
+          ],
+        ),
       ),
     );
   }
