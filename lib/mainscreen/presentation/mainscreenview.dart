@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/mainscreen/controller/navagationcontroller.dart';
 import 'package:flutter_application_1/mainscreen/presentation/ShoppingScreenview.dart';
+import 'package:flutter_application_1/mainscreen/presentation/acounntscreenview.dart';
 import 'package:flutter_application_1/mainscreen/presentation/homescreenview.dart';
 import 'package:flutter_application_1/mainscreen/presentation/widget/customBottomnavigationbar.dart';
 import 'package:flutter_application_1/mainscreen/presentation/wishlistscreenview.dart';
@@ -27,7 +28,7 @@ class Mainscreenview extends StatelessWidget {
                   Homescreenview(),
                   Shoppingscreenview(),
                   Wishlistscreenview(),
-                  //AcounntScreenView(),
+                  Acounntscreenview(),
                 ],
               ),
             ),
