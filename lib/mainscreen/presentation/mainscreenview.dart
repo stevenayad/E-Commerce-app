@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/mainscreen/controller/navagationcontroller.dart';
+import 'package:flutter_application_1/mainscreen/presentation/ShoppingScreenview.dart';
 import 'package:flutter_application_1/mainscreen/presentation/homescreenview.dart';
 import 'package:flutter_application_1/mainscreen/presentation/widget/customBottomnavigationbar.dart';
 import 'package:flutter_application_1/utilis/controller/themecontroller.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 class Mainscreenview extends StatelessWidget {
   const Mainscreenview({super.key});
 
@@ -20,16 +19,17 @@ class Mainscreenview extends StatelessWidget {
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: AnimatedSwitcher(
             duration: Duration(microseconds: 200),
-            child: Obx(() => IndexedStack(
-              key:  ValueKey( navagationcontroller.currentindex.value,),
-              index: navagationcontroller.currentindex.value,
-              children: [
-                Homescreenview(),
-                //ShoppingScreenview(),
-                //WishListScreenView(),
-                //AcounntScreenView(),
-              ],
-            )),
+            child: Obx(
+              () => IndexedStack(
+                index: navagationcontroller.currentindex.value,
+                children: [
+                  Homescreenview(),
+                  Shoppingscreenview(),
+                  //WishListScreenView(),
+                  //AcounntScreenView(),
+                ],
+              ),
+            ),
           ),
           bottomNavigationBar: Custombottomnavigationbar(),
         );

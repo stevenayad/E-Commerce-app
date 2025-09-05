@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/mainscreen/Model/product.dart';
 import 'package:flutter_application_1/mainscreen/presentation/productdetailsview.dart';
 import 'package:flutter_application_1/mainscreen/presentation/widget/productcard.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class Productgird extends StatelessWidget {
-  const Productgird({super.key});
-
+  const Productgird({super.key,required this.isScroll});
+  final isScroll;
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      physics: const NeverScrollableScrollPhysics(),
+      physics: isScroll ? AlwaysScrollableScrollPhysics(): const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,

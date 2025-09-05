@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/mainscreen/presentation/allproductview.dart';
+import 'package:flutter_application_1/mainscreen/presentation/mycartview.dart';
 import 'package:flutter_application_1/mainscreen/presentation/widget/catergroychips.dart';
 import 'package:flutter_application_1/mainscreen/presentation/widget/customsearchbar.dart';
 import 'package:flutter_application_1/mainscreen/presentation/widget/productgird.dart';
 import 'package:flutter_application_1/mainscreen/presentation/widget/saleBaner.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
 import 'package:flutter_application_1/utilis/controller/themecontroller.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class Homescreenview extends StatelessWidget {
@@ -56,7 +60,9 @@ class Homescreenbody extends StatelessWidget {
                     icon: Icon(Icons.notifications_outlined),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(() => Mycartview());
+                    },
                     icon: Icon(Icons.shopping_bag_outlined),
                   ),
                   GetBuilder<Themecontroller>(
@@ -88,7 +94,14 @@ class Homescreenbody extends StatelessWidget {
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Allproductview(),
+                        ),
+                      );
+                    },
                     child: Text(
                       'See All',
                       style: TextStyle(color: Theme.of(context).primaryColor),
@@ -98,7 +111,7 @@ class Homescreenbody extends StatelessWidget {
               ),
             ),
             //product Grid
-            Productgird(),
+            Productgird(isScroll: false),
           ],
         ),
       ),

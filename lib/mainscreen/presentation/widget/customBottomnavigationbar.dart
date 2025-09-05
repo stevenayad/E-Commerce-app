@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/mainscreen/controller/navagationcontroller.dart';
+import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 
 class Custombottomnavigationbar extends StatelessWidget {
@@ -7,7 +8,8 @@ class Custombottomnavigationbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Navagationcontroller navagationcontroller = Navagationcontroller();
+    final Navagationcontroller navagationcontroller = Get.find();
+
     return Obx(() {
       return BottomNavigationBar(
         currentIndex: navagationcontroller.currentindex.value,

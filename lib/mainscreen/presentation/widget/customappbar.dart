@@ -1,12 +1,14 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/mainscreen/Model/product.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
 import 'package:share_plus/share_plus.dart';
 
-PreferredSizeWidget customAppBar(BuildContext context, Product product) {
+PreferredSizeWidget customAppBar(
+  BuildContext context,
+  Product product,  
+) {
   final isDark = Theme.of(context).brightness == Brightness.dark;
+
   return AppBar(
     leading: IconButton(
       onPressed: () {
@@ -15,20 +17,23 @@ PreferredSizeWidget customAppBar(BuildContext context, Product product) {
       icon: Icon(Icons.arrow_back, color: isDark ? Colors.white : Colors.black),
     ),
     title: Text(
-      "Product Details",
+      'Product Details',
       style: AppTextStyle.withColor(
         AppTextStyle.h3,
         isDark ? Colors.white : Colors.black,
       ),
     ),
     actions: [
-      IconButton(
-        onPressed: () {
-          _shareProduct(context, product.name, product.description);
-        },
-        icon: Icon(Icons.search),
-      ),
-    ],
+  IconButton(
+    onPressed: () {
+     
+        _shareProduct(context, product.name, product.description);
+      
+    },
+    icon: Icon(Icons.search, color: isDark ? Colors.white : Colors.black),
+  ),
+],
+
   );
 }
 
