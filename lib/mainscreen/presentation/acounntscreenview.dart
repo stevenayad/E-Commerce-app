@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/mainscreen/presentation/widget/BuildMenuSection.dart';
 import 'package:flutter_application_1/mainscreen/presentation/widget/buildprofilescreen.dart';
-import 'package:flutter_application_1/mainscreen/presentation/widget/showdailoglogout.dart';
+import 'package:flutter_application_1/setting/presentation/settingview.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart' show Get;
 
 class Acounntscreenview extends StatelessWidget {
   const Acounntscreenview({super.key});
@@ -21,7 +23,9 @@ class Acounntscreenview extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.to(() => Settingview());
+            },
             icon: Icon(
               Icons.settings_outlined,
               color: isDark ? Colors.white : Colors.black,

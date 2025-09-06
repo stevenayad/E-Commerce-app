@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/mainscreen/presentation/allproductview.dart';
 import 'package:flutter_application_1/mainscreen/presentation/mycartview.dart';
+import 'package:flutter_application_1/mainscreen/presentation/notificationview.dart';
 import 'package:flutter_application_1/mainscreen/presentation/widget/catergroychips.dart';
 import 'package:flutter_application_1/mainscreen/presentation/widget/customsearchbar.dart';
 import 'package:flutter_application_1/mainscreen/presentation/widget/productgird.dart';
@@ -56,7 +57,9 @@ class Homescreenbody extends StatelessWidget {
                   ),
                   const Spacer(),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(() => NotificationsScreen());
+                    },
                     icon: Icon(Icons.notifications_outlined),
                   ),
                   IconButton(
