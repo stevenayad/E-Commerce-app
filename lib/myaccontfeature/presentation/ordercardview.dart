@@ -1,12 +1,10 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/mainscreen/Model/product.dart';
 import 'package:flutter_application_1/myaccontfeature/Model/ordermodel.dart';
 import 'package:flutter_application_1/myaccontfeature/presentation/widget/buildorderlist.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 
 class Ordercardview extends StatelessWidget {
   const Ordercardview({super.key});

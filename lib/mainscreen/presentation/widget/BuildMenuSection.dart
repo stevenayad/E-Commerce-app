@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/mainscreen/presentation/widget/showdailoglogout.dart';
+import 'package:flutter_application_1/myaccontfeature/presentation/addressview.dart';
 import 'package:flutter_application_1/myaccontfeature/presentation/ordercardview.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -58,7 +59,9 @@ class BuildMenuSection extends StatelessWidget {
                   if (item['title'] == 'Logout') {
                     DialogUtils.showLogoutDialog(context);
                   } else if (item['title'] == 'Shopping') {
-                    Get.off(() => Ordercardview());
+                    Get.to(() => Ordercardview());
+                  } else if (item['title'] == 'Location') {
+                    Get.to(() => Addressview());
                   }
                 },
               ),
