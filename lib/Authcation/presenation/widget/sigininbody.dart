@@ -64,7 +64,7 @@ class Signinbody extends StatelessWidget {
               CustomTextfelid(
                 label: 'Password',
                 prefixicon: Icons.password_outlined,
-                textEditingController: emailcontroller,
+                textEditingController: passwordcontroller,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'please entre passworf';

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/myaccontfeature/presentation/editprofileview.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class buildprofilesection extends StatelessWidget {
   const buildprofilesection({super.key});
@@ -37,7 +40,9 @@ class buildprofilesection extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Get.to(() => Editprofileview());
+          },
           child: Text(
             'Edit Profile',
             style: AppTextStyle.withColor(

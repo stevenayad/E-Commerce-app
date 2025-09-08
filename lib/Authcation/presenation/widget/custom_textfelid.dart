@@ -6,19 +6,21 @@ class CustomTextfelid extends StatefulWidget {
     super.key,
     required this.label,
     required this.prefixicon,
-    required this.textEditingController,
+    this.textEditingController = null,
     this.keywordtype = TextInputType.text,
     this.ispassword = false,
     this.change,
     this.validator,
+    this.initialvlaue = '',
   });
   final String label;
   final IconData prefixicon;
-  final TextEditingController textEditingController;
+  final TextEditingController? textEditingController;
   final String? Function(String?)? validator;
-  final TextInputType keywordtype;
+  final TextInputType? keywordtype;
   final bool ispassword;
   final String? Function(String?)? change;
+  final String? initialvlaue;
 
   @override
   State<CustomTextfelid> createState() => _CustomTextfelidState();
@@ -30,6 +32,8 @@ class _CustomTextfelidState extends State<CustomTextfelid> {
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return TextFormField(
+      initialValue:
+          widget.textEditingController == null ? widget.initialvlaue : null,
       controller: widget.textEditingController,
       obscureText: widget.ispassword && observertext,
       keyboardType: widget.keywordtype,
@@ -52,34 +56,32 @@ class _CustomTextfelidState extends State<CustomTextfelid> {
         suffixIcon:
             widget.ispassword
                 ? IconButton(
-                  icon: Icon(observertext ? Icons.visibility_off : Icons.visibility) ,
+                  icon: Icon(
+                    observertext ? Icons.visibility_off : Icons.visibility,
+                  ),
                   onPressed: () {
                     observertext != observertext;
-                    setState(() {
-                      
-                    });
+                    setState(() {});
                   },
                 )
                 : null,
 
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(
-                  color: isDark ? Colors.grey[400]! : Colors.grey[800]!
-                )
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(
-                  color: isDark ? Colors.grey[400]! : Colors.grey[800]!
-                )
-              ),
-              focusedBorder:OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(
-                  color: Theme.of(context).primaryColor,
-                )
-              ) ,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(
+            color: isDark ? Colors.grey[400]! : Colors.grey[800]!,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(
+            color: isDark ? Colors.grey[400]! : Colors.grey[800]!,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: Theme.of(context).primaryColor),
+        ),
       ),
     );
   }
