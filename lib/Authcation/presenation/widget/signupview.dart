@@ -125,12 +125,12 @@ class signupbody extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    //Get.to(() => Signinbody());
+                    Get.to(() => Signinview());
                   },
                   child: Text(
                     'Sign up',
                     style: AppTextStyle.withColor(
-                      AppTextStyle.h1,
+                      AppTextStyle.h3,
                       Colors.white,
                     ),
                   ),

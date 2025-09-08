@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/setting/presentation/privacypolicyview.dart';
+import 'package:flutter_application_1/setting/presentation/termservices.dart';
 import 'package:flutter_application_1/setting/presentation/widget/buildnavgation.dart';
 import 'package:flutter_application_1/setting/presentation/widget/buildsection.dart';
 import 'package:flutter_application_1/setting/presentation/widget/buildswitchtitle.dart';
@@ -57,12 +59,18 @@ class Settingview extends StatelessWidget {
                 "Privacy Policy",
                 "View  Our privacy policy ",
                 Icons.privacy_tip_outlined,
+                onTap: () {
+                  Get.to(() => Privacypolicyview());
+                },
               ),
               buildNavagationtitle(
                 context,
                 "Terms of Services",
                 "Read our terms of tervices",
                 Icons.description_outlined,
+                onTap: () {
+                  Get.to(() => Termservices());
+                },
               ),
             ]),
             buildsection(context, 'About', [

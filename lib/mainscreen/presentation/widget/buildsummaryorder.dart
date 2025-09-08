@@ -1,6 +1,8 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/payment/presentation/checkoutview.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 Widget buildSummaryorder(BuildContext context) {
   return Container(
@@ -47,7 +49,9 @@ Widget buildSummaryorder(BuildContext context) {
 
                 side: BorderSide(),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Get.to(Checkoutview());
+              },
               child: Text(
                 'Go To CheckOut',
                 style: AppTextStyle.withColor(

@@ -105,7 +105,7 @@ class Signinbody extends StatelessWidget {
                   child: Text(
                     'Sign in',
                     style: AppTextStyle.withColor(
-                      AppTextStyle.h1,
+                      AppTextStyle.h3,
                       Colors.white,
                     ),
                   ),

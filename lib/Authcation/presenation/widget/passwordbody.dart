@@ -76,7 +76,7 @@ class passwordbody extends StatelessWidget {
                   child: Text(
                     'Reset Password',
                     style: AppTextStyle.withColor(
-                      AppTextStyle.h1,
+                      AppTextStyle.h3,
                       Colors.white,
                     ),
                   ),

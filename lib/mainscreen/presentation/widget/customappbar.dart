@@ -26,7 +26,7 @@ PreferredSizeWidget customAppBar(
     actions: [
   IconButton(
     onPressed: () {
-     
+
         _shareProduct(context, product.name, product.description);
       
     },

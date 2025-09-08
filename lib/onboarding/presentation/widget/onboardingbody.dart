@@ -59,6 +59,7 @@ class _onboardingbodyState extends State<onboardingbody> {
           itemBuilder: (context, index) {
             return Column(
               children: [
+                const SizedBox(height: 50,),
                 Image.asset(
                   items[index].image,
                   height: MediaQuery.of(context).size.height * 0.4,
@@ -71,6 +72,7 @@ class _onboardingbodyState extends State<onboardingbody> {
                     Theme.of(context).textTheme.bodyLarge!.color!,
                   ),
                 ),
+                 const SizedBox(height: 8,),
                 Text(
                   items[index].descrption,
                   textAlign: TextAlign.center,
