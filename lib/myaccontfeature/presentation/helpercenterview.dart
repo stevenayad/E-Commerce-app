@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/myaccontfeature/presentation/widget/buildtextfeildhelper.dart';
+import 'package:flutter_application_1/myaccontfeature/presentation/widget/contanctsupportsection.dart';
+import 'package:flutter_application_1/myaccontfeature/presentation/widget/helpcentersection.dart';
 import 'package:flutter_application_1/myaccontfeature/presentation/widget/popularquestionsection.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
 import 'package:get/get.dart';
@@ -48,6 +50,8 @@ class Helpercenterview extends StatelessWidget {
               child: buildtextfeildhelper(context),
             ),
             popluarquestionsection(),
+            Helpcentersection(),
+            Contanctsupportsection(),
           ],
         ),
       ),
