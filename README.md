@@ -1,6 +1,6 @@
 🛒 Flutter E-Commerce App UI
 
-A modern and responsive E-Commerce App UI built with Flutter, featuring authentication, product browsing, shopping cart, checkout, and profile management.
+A modern and responsive E-Commerce App UI built with Flutter , product browsing, shopping cart, checkout, and profile management.
 
 🌐 Project Demo
 
