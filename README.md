@@ -1,16 +1,25 @@
-# ecoummre
+🛒 Flutter E-Commerce App UI
 
-A new Flutter project.
+A modern and responsive E-Commerce App UI built with Flutter , product browsing, shopping cart, checkout, and profile management.
 
-## Getting Started
+🌐 Project Demo
 
-This project is a starting point for a Flutter application.
+👉 https://drive.google.com/file/d/1nHR1Ssyzj2z6fUgkniaHHrxk4FuCazpm/view?usp=drive_link
 
-A few resources to get you started if this is your first Flutter project:
+📌 What's Inside?
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+✅ Theme Setup (Custom Buttons, Text Styles, Colors)
+✅ Splash Screen & Onboarding UI
+✅ Authentication Screens (Sign In, Sign Up, Forgot Password)
+✅ Home Page UI (Product Listing, Categories, Ads, Search & Filters)
+✅ Product Details & Wishlist UI
+✅ Shopping Cart & Checkout UI
+✅ User Profile, Orders, Notifications, and Settings UI
+✅ Privacy Policy & Help Center UI
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+✨ Key Features
+
+.🎨 Modern & Clean UI
+.📐 Pixel-Perfect Design
+.📱 Fully Responsive for All Devices
+.🔄 Smooth Animations & Intuitive Navigation
