@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/features/mainscreen/presentation/cubits/cubit/product_cubit_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
 
 class Catergroychips extends StatefulWidget {
@@ -11,55 +13,65 @@ class Catergroychips extends StatefulWidget {
 class _CatergroychipsState extends State<Catergroychips> {
   int selectedindex = 0;
   final Catergories = ['All', 'Men', 'Women', 'gril'];
+
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       padding: EdgeInsets.all(12),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: List.generate(Catergories.length, (index) {
           return AnimatedContainer(
             padding: EdgeInsets.all(8),
-            duration: Duration(microseconds: 300),
-            curve: Curves.easeInOut,
+            duration: Duration(milliseconds: 300),
             child: ChoiceChip(
               label: Text(
                 Catergories[index],
                 style: AppTextStyle.withColor(
                   selectedindex == index
                       ? AppTextStyle.withWeight(
-                        AppTextStyle.bodySmall,
-                        FontWeight.w600,
-                      )
+                          AppTextStyle.bodySmall,
+                          FontWeight.w600,
+                        )
                       : AppTextStyle.bodySmall,
                   selectedindex == index
                       ? Colors.white
                       : isDark
-                      ? Colors.grey[300]!
-                      : Colors.grey[600]!,
+                          ? Colors.grey[300]!
+                          : Colors.grey[600]!,
                 ),
               ),
               selected: selectedindex == index,
               onSelected: (selected) {
                 selectedindex = selected ? index : selectedindex;
                 setState(() {});
+
+                final cubit = context.read<ProductCubit>();
+
+                final map = {
+                  'Men': 'Man',
+                  'Women': 'Wowan',
+                  'gril': 'Gril',
+                };
+
+                if (Catergories[index] == 'All') {
+                  cubit.getAllProducts();
+                } else {
+                  cubit.getProductsByCategory(
+                      map[Catergories[index]]!);
+                }
               },
               selectedColor: Theme.of(context).primaryColor,
               elevation: selectedindex == index ? 2 : 0,
-              pressElevation: 0,
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              labelPadding: EdgeInsets.symmetric(horizontal: 4, vertical: 1),
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
               side: BorderSide(
-                color:
-                    selectedindex == index
-                        ? Colors.transparent
-                        : isDark
+                color: selectedindex == index
+                    ? Colors.transparent
+                    : isDark
                         ? Colors.grey[300]!
                         : Colors.grey[600]!,
-                width: 1,
               ),
             ),
           );

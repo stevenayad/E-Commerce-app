@@ -30,15 +30,14 @@ class LoginCubit extends Cubit<LoginState> {
 
     final result = await authRepo.Login(buildRequest());
 
-    result.fold(
-      (failure) => emit(LoginFailure(message: failure.errMessage)),
-      (data) {
-        if (data.access != null) {
-          CacheHelper.saveAccessToken(data.access!);
-        }
-        emit(LoginSuccess(loginModel: data));
-      },
-    );
+    result.fold((failure) => emit(LoginFailure(message: failure.errMessage)), (
+      data,
+    ) {
+      if (data.access != null) {
+        CacheHelper.saveAccessToken(data.access!);
+      }
+      emit(LoginSuccess(loginModel: data));
+    });
   }
 
   @override

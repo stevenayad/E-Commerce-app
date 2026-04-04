@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_application_1/features/mainscreen/Model/Notification.dart';
+import 'package:flutter_application_1/features/mainscreen/data/Model/Notification.dart';
 
 class Notificationuntils {
   static IconData getNoification(Notificationtype type) {
@@ -16,7 +16,10 @@ class Notificationuntils {
     }
   }
 
-    static Color getBackgroundIconData(BuildContext context, Notificationtype type) {
+  static Color getBackgroundIconData(
+    BuildContext context,
+    Notificationtype type,
+  ) {
     switch (type) {
       case Notificationtype.order:
         return Theme.of(context).primaryColor;
@@ -25,7 +28,7 @@ class Notificationuntils {
       case Notificationtype.promo:
         return Colors.orange[100]!;
       case Notificationtype.payment:
-        return  Colors.red[100]!;
+        return Colors.red[100]!;
     }
   }
 
@@ -38,7 +41,7 @@ class Notificationuntils {
       case Notificationtype.promo:
         return Colors.orange;
       case Notificationtype.payment:
-        return  Colors.red;
+        return Colors.red;
     }
   }
 }

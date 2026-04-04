@@ -22,8 +22,8 @@ class _onboardingbodyState extends State<onboardingbody> {
     Get.off(() => Signinview());
   }
 
-    final PageController pageController = PageController();
-    int currentindex = 0;
+  final PageController pageController = PageController();
+  int currentindex = 0;
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
@@ -59,7 +59,7 @@ class _onboardingbodyState extends State<onboardingbody> {
           itemBuilder: (context, index) {
             return Column(
               children: [
-                const SizedBox(height: 50,),
+                const SizedBox(height: 50),
                 Image.asset(
                   items[index].image,
                   height: MediaQuery.of(context).size.height * 0.4,
@@ -72,7 +72,7 @@ class _onboardingbodyState extends State<onboardingbody> {
                     Theme.of(context).textTheme.bodyLarge!.color!,
                   ),
                 ),
-                 const SizedBox(height: 8,),
+                const SizedBox(height: 8),
                 Text(
                   items[index].descrption,
                   textAlign: TextAlign.center,

@@ -10,12 +10,11 @@ import 'package:get/instance_manager.dart';
 class Splahscreenview extends StatelessWidget {
   Splahscreenview({super.key});
 
-    final Authcontroller authcontroller = Get.find<Authcontroller>();
+  final Authcontroller authcontroller = Get.find<Authcontroller>();
 
   @override
   Widget build(BuildContext context) {
- 
-      Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       /*  if (authcontroller.isfirsttime) {
          Get.off(()=>Onboardingview());
       }else if(authcontroller.isLogged){
@@ -23,9 +22,9 @@ class Splahscreenview extends StatelessWidget {
       }else{
          Get.off(() => Signinview());
       }*/
-        Get.off(()=>Onboardingview());
-      });
-    
+      Get.off(() => Onboardingview());
+    });
+
     return Scaffold(body: Splahviewbody());
   }
 }

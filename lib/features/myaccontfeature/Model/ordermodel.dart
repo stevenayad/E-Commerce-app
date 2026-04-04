@@ -36,7 +36,7 @@ class OrderRepository {
         status: OrderStatus.active,
         imageUrl: 'assets/images/laptop.jpg',
         orderDate: DateTime.now().subtract(const Duration(hours: 1)),
-      ), 
+      ),
       Ordermodel(
         orderNumber: '64353',
         itemCount: 2,
@@ -44,7 +44,7 @@ class OrderRepository {
         status: OrderStatus.completed,
         imageUrl: 'assets/images/shoe2.jpg',
         orderDate: DateTime.now().subtract(const Duration(hours: 3)),
-      ), 
+      ),
       Ordermodel(
         orderNumber: '25242',
         itemCount: 5,
@@ -52,7 +52,7 @@ class OrderRepository {
         status: OrderStatus.cancelled,
         imageUrl: 'assets/images/shoe2.jpg',
         orderDate: DateTime.now().subtract(const Duration(hours: 7)),
-      ), 
+      ),
     ];
   }
 

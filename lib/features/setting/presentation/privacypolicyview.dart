@@ -67,7 +67,7 @@ class Privacypolicyview extends StatelessWidget {
                   isDark ? Colors.grey[400]! : Colors.grey[600]!,
                 ),
               ),
-               SizedBox(height: 40),
+              SizedBox(height: 40),
             ],
           ),
         ),

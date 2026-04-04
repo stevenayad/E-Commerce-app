@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 
 abstract class Failure {
@@ -68,5 +67,4 @@ class ServiveFailure extends Failure {
       return ServiveFailure("Oops, something went wrong!");
     }
   }
-
 }

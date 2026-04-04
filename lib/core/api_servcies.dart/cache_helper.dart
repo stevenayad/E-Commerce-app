@@ -35,8 +35,7 @@ class CacheHelper {
     return _sharedPreferences.getString(_refreashTokenKey);
   }
 
-
-//=================ID======================
+  //=================ID======================
   static Future<void> saveUserId(String userId) async {
     await _sharedPreferences.setString(_userIdKey, userId);
     print('🔑 User ID saved: $userId');
@@ -46,8 +45,7 @@ class CacheHelper {
     return _sharedPreferences.getString(_userIdKey);
   }
 
-
-//=============Clear================
+  //=============Clear================
   static Future<void> clearAll() async {
     await _sharedPreferences.clear();
   }

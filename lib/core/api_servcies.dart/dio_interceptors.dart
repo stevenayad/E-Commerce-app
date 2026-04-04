@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter_application_1/core/api_servcies.dart/cache_helper.dart';
 
-
 class InterceptorsConsumer extends Interceptor {
   final Dio dio;
 
@@ -21,7 +20,6 @@ class InterceptorsConsumer extends Interceptor {
       print("❌ Token Missing");
     }
 
-
     super.onRequest(options, handler);
   }
 
@@ -29,7 +27,4 @@ class InterceptorsConsumer extends Interceptor {
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     super.onResponse(response, handler);
   }
-
-
-  
 }

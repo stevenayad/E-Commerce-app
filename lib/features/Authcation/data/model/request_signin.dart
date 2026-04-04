@@ -19,6 +19,4 @@ class RequestSignin {
       "password": password,
     };
   }
-
-  
 }

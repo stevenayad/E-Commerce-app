@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/features/mainscreen/Model/product.dart';
+import 'package:flutter_application_1/features/mainscreen/data/Model/product.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
 
 Widget buildwishlistitem(BuildContext context, Product product) {
@@ -75,7 +75,8 @@ Widget buildwishlistitem(BuildContext context, Product product) {
                           onPressed: () {},
                           icon: Icon(
                             Icons.delete_outlined,
-                            color: isDark ? Colors.grey[400]! : Colors.grey[600]! ,
+                            color:
+                                isDark ? Colors.grey[400]! : Colors.grey[600]!,
                           ),
                         ),
                       ],

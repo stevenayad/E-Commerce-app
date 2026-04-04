@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 Widget buildTextField(
   BuildContext context,
   String label,
-  IconData icon, 
-  String initialValue) {
+  IconData icon,
+  String initialValue,
+) {
   final isDark = Theme.of(context).brightness == Brightness.dark;
 
   return TextFormField(
@@ -16,14 +17,14 @@ Widget buildTextField(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
           color: isDark ? Colors.grey[700]! : Colors.grey[300]!,
-        ), 
-      ), 
+        ),
+      ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
           color: isDark ? Colors.grey[700]! : Colors.grey[300]!,
         ),
-      ), 
+      ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
@@ -31,5 +32,5 @@ Widget buildTextField(
         ),
       ),
     ),
-  ); 
+  );
 }

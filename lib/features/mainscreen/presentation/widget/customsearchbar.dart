@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/features/mainscreen/presentation/cubits/cubit/product_cubit_cubit.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Customsearchbar extends StatelessWidget {
   const Customsearchbar({super.key});
@@ -14,6 +16,9 @@ class Customsearchbar extends StatelessWidget {
           AppTextStyle.bodyMedium,
           Theme.of(context).textTheme.bodyLarge!.color!,
         ),
+        onSubmitted: (name) {
+          BlocProvider.of<ProductCubit>(context).getProductBySearch(name);
+        },
         decoration: InputDecoration(
           hint: Text('Search'),
           hintStyle: AppTextStyle.withColor(

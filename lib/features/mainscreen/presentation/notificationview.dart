@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/features/mainscreen/Model/Notification.dart';
+import 'package:flutter_application_1/features/mainscreen/data/Model/Notification.dart';
 import 'package:flutter_application_1/utilis/Notificationuntils.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
 import 'package:get/get.dart';
@@ -11,7 +11,7 @@ class NotificationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final   notifications=  notificationRepository.getNotifications();
+    final notifications = notificationRepository.getNotifications();
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(

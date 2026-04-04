@@ -11,10 +11,11 @@ class DialogUtils {
     Get.dialog(
       AlertDialog(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 24,
+          vertical: 20,
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -66,7 +67,8 @@ class DialogUtils {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      final Authcontroller authController = Get.find<Authcontroller>();
+                      final Authcontroller authController =
+                          Get.find<Authcontroller>();
                       authController.loginout();
                       Get.offAll(() => Signinview());
                     },

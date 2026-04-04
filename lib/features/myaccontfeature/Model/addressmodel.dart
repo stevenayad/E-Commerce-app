@@ -51,7 +51,7 @@ class AddressRepository {
   Address? getDefaultAddress() {
     return getAddresses().firstWhere(
       (address) => address.isDefault,
-      orElse:()=>getAddresses().first,
+      orElse: () => getAddresses().first,
     );
   }
 }

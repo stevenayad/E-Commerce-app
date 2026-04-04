@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/features/mainscreen/Model/product.dart';
+import 'package:flutter_application_1/features/mainscreen/data/Model/product.dart';
 import 'package:flutter_application_1/features/mainscreen/presentation/widget/buildcartitem.dart';
 import 'package:flutter_application_1/features/mainscreen/presentation/widget/buildsummaryorder.dart';
 import 'package:flutter_application_1/features/mainscreen/presentation/widget/showdailogdelteitem.dart';

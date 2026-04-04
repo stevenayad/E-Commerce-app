@@ -7,10 +7,10 @@ class Customapp extends StatelessWidget implements PreferredSizeWidget {
   const Customapp({super.key, required this.title});
 
   final String title;
-  
+
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
-  
+
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;

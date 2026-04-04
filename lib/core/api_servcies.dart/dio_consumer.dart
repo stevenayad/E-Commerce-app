@@ -31,9 +31,9 @@ class DioConsumer implements ApiConsumer {
   // GET
   // ---------------------------------------------------------------------------
   @override
-  Future<dynamic> get(String endpoint, Map<String, dynamic>? query) async {
+  Future<dynamic> get(String endpoint) async {
     try {
-      final response = await dio.get(endpoint, queryParameters: query);
+      final response = await dio.get(endpoint);
 
       return response.data;
     } on DioException catch (e) {

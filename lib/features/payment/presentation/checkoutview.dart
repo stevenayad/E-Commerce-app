@@ -59,7 +59,6 @@ class Checkoutview extends StatelessWidget {
 
           Get.to(
             () => Orderconformationscreen(
-            
               totalamount: 662.10,
               orderNumber: Ordernumber,
             ),

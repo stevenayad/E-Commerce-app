@@ -16,14 +16,13 @@ class NotificationItem {
   });
 }
 
-
-
 class NotificationRepository {
   List<NotificationItem> getNotifications() {
-    return  [
+    return [
       NotificationItem(
         title: 'Order Confirmed',
-        message: 'Your order #123456 has been confirmed and is being processed.',
+        message:
+            'Your order #123456 has been confirmed and is being processed.',
         time: '2 minutes ago',
         type: Notificationtype.order,
         isRead: true,

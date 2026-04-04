@@ -1,7 +1,5 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/features/mainscreen/Model/product.dart';
+import 'package:flutter_application_1/features/mainscreen/data/Model/product.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
 
 Widget buildsummaryselection(BuildContext context) {

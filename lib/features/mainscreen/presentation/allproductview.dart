@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/features/mainscreen/Model/product.dart';
+import 'package:flutter_application_1/features/mainscreen/data/Model/product.dart';
 import 'package:flutter_application_1/features/mainscreen/presentation/widget/customappbar.dart';
 import 'package:flutter_application_1/features/mainscreen/presentation/widget/customappbar2.dart';
 import 'package:flutter_application_1/features/mainscreen/presentation/widget/productgird.dart';
@@ -11,8 +11,8 @@ class Allproductview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar2(context , 'All Product'),
-      body: Productgird(isScroll: true),
+      appBar: customAppBar2(context, 'All Product'),
+      //body: Productgird(isScroll: true),
     );
   }
 }

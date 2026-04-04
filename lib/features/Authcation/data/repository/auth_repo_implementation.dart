@@ -13,43 +13,44 @@ class AuthRepoImplementation implements AuthRepo {
 
   AuthRepoImplementation({required this.apiConsumer});
   @override
-  Future<Either<Failure, LoginModel>> Login(RequestLogin requestsignin)async {
-
-    try{
-   final response =await apiConsumer.post('/api/token/', requestsignin.toJson(), false);
-    if (response == null) {
-      return Left(ServiveFailure("Invalid server response"));
-    }
-    final parsedModel = LoginModel.fromJson(response);
-    return Right(parsedModel);
-    }on DioException catch(e)
-    {
+  Future<Either<Failure, LoginModel>> Login(RequestLogin requestsignin) async {
+    try {
+      final response = await apiConsumer.post(
+        '/api/token/',
+        requestsignin.toJson(),
+        false,
+      );
+      if (response == null) {
+        return Left(ServiveFailure("Invalid server response"));
+      }
+      final parsedModel = LoginModel.fromJson(response);
+      return Right(parsedModel);
+    } on DioException catch (e) {
       return Left(ServiveFailure.fromDioError(e));
-    }catch(e)
-    {
-       return Left(ServiveFailure("Unexpected error, please try again"));
+    } catch (e) {
+      return Left(ServiveFailure("Unexpected error, please try again"));
     }
-
-  
-    
-   
   }
 
   @override
-  Future<Either<Failure, SignupModel>> SignUp(RequestSignin requestsignup) async{
-    try{
-   final response =await apiConsumer.post('/api/register/', requestsignup.toJson(), false);
-    if (response == null) {
-      return Left(ServiveFailure("Invalid server response"));
-    }
-    final parsedModel = SignupModel.fromJson(response);
-    return Right(parsedModel);
-    }on DioException catch(e)
-    {
+  Future<Either<Failure, SignupModel>> SignUp(
+    RequestSignin requestsignup,
+  ) async {
+    try {
+      final response = await apiConsumer.post(
+        '/api/register/',
+        requestsignup.toJson(),
+        false,
+      );
+      if (response == null) {
+        return Left(ServiveFailure("Invalid server response"));
+      }
+      final parsedModel = SignupModel.fromJson(response);
+      return Right(parsedModel);
+    } on DioException catch (e) {
       return Left(ServiveFailure.fromDioError(e));
-    }catch(e)
-    {
-       return Left(ServiveFailure("Unexpected error, please try again"));
+    } catch (e) {
+      return Left(ServiveFailure("Unexpected error, please try again"));
     }
   }
 }
