@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/features/mainscreen/data/Model/product.dart';
+import 'package:flutter_application_1/features/mainscreen/data/Model/cart_item_model.dart';
 import 'package:flutter_application_1/features/mainscreen/presentation/widget/showdailogdelteitem.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
 
-Widget buildCartItem(BuildContext context, Product product) {
+Widget buildCartItem(
+  BuildContext context, {
+  required CartItemModel item,
+  required VoidCallback onIncrement,
+  required VoidCallback onDecrement,
+  required VoidCallback onRemove,
+}) {
   final isDark = Theme.of(context).brightness == Brightness.dark;
 
   return Container(
@@ -13,10 +19,9 @@ Widget buildCartItem(BuildContext context, Product product) {
       borderRadius: BorderRadius.circular(16),
       boxShadow: [
         BoxShadow(
-          color:
-              isDark
-                  ? Colors.black.withOpacity(0.2)
-                  : Colors.grey.withOpacity(0.1),
+          color: isDark
+              ? Colors.black.withOpacity(0.2)
+              : Colors.grey.withOpacity(0.1),
           blurRadius: 8,
           offset: const Offset(0, 2),
         ),
@@ -24,17 +29,22 @@ Widget buildCartItem(BuildContext context, Product product) {
     ),
     child: Row(
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
-          child: Image.asset(
-            product.imageUrl,
-            width: 80,
-            height: 80,
-            fit: BoxFit.cover,
+        Container(
+          width: 80,
+          height: 80,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
+            borderRadius: const BorderRadius.horizontal(
+              left: Radius.circular(12),
+            ),
+          ),
+          child: Icon(
+            Icons.shopping_bag_outlined,
+            size: 36,
+            color: Theme.of(context).colorScheme.primary,
           ),
         ),
         const SizedBox(width: 12),
-
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(12),
@@ -46,7 +56,7 @@ Widget buildCartItem(BuildContext context, Product product) {
                   children: [
                     Expanded(
                       child: Text(
-                        product.name,
+                        item.productName,
                         style: AppTextStyle.withColor(
                           AppTextStyle.bodyLarge,
                           Theme.of(context).textTheme.bodyLarge?.color ??
@@ -58,9 +68,10 @@ Widget buildCartItem(BuildContext context, Product product) {
                     ),
                     IconButton(
                       onPressed: () {
-                        Showdailogdelteitem.showconforimdelete(
+                        Showdailogdelteitem.showConfirmRemoveCartItem(
                           context,
-                          product,
+                          item.productName,
+                          onRemove,
                         );
                       },
                       icon: Icon(Icons.delete_outline, color: Colors.red[400]),
@@ -72,7 +83,7 @@ Widget buildCartItem(BuildContext context, Product product) {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '\$${product.price}',
+                      '\$${item.price.toStringAsFixed(2)}',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -82,12 +93,15 @@ Widget buildCartItem(BuildContext context, Product product) {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Theme.of(context).primaryColor.withOpacity(0.1),
+                        color:
+                            Theme.of(context).primaryColor.withOpacity(0.1),
                       ),
                       child: Row(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           IconButton(
-                            onPressed: () {},
+                            onPressed:
+                                item.quantity > 1 ? onDecrement : null,
                             icon: Icon(
                               Icons.remove,
                               size: 20,
@@ -95,14 +109,14 @@ Widget buildCartItem(BuildContext context, Product product) {
                             ),
                           ),
                           Text(
-                            '1',
+                            '${item.quantity}',
                             style: AppTextStyle.withColor(
                               AppTextStyle.bodyLarge,
                               Theme.of(context).primaryColor,
                             ),
                           ),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: onIncrement,
                             icon: Icon(
                               Icons.add,
                               size: 20,

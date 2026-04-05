@@ -9,7 +9,7 @@ class DioConsumer implements ApiConsumer {
 
   DioConsumer(this.dio) {
     dio.options = BaseOptions(
-      baseUrl: 'http://127.0.0.1:8000/',
+      baseUrl: 'http://127.0.0.1:8000/api/',
       connectTimeout: const Duration(seconds: 60),
       receiveTimeout: const Duration(seconds: 60),
       sendTimeout: const Duration(seconds: 60),
@@ -84,7 +84,7 @@ class DioConsumer implements ApiConsumer {
   @override
   Future<dynamic> put(
     String endpoint,
-    dynamic body, {
+    Map<String, dynamic>? body, {
     bool isFormData = false,
   }) async {
     try {

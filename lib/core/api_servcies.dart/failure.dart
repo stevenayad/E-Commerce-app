@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_application_1/core/api_servcies.dart/api_response_parser.dart';
 
 abstract class Failure {
   final String errMessage;
@@ -9,62 +10,48 @@ abstract class Failure {
 class ServiveFailure extends Failure {
   ServiveFailure(String errMessage) : super(errMessage);
 
-  factory ServiveFailure.fromDioError(DioError dioerror) {
+  factory ServiveFailure.fromDioError(DioException dioerror) {
     switch (dioerror.type) {
       case DioExceptionType.connectionTimeout:
-        return ServiveFailure("Connection timeout With Apiserver");
+        return ServiveFailure('Connection timeout with API server');
       case DioExceptionType.sendTimeout:
-        return ServiveFailure("Send timeout With Apiserver");
+        return ServiveFailure('Send timeout with API server');
       case DioExceptionType.receiveTimeout:
-        return ServiveFailure("Recive timeout With Apiserver");
+        return ServiveFailure('Receive timeout with API server');
       case DioExceptionType.badCertificate:
-        return ServiveFailure("lk");
+        return ServiveFailure('Invalid server certificate');
       case DioExceptionType.badResponse:
-        return ServiveFailure.badResponse(
-          dioerror.response!.statusCode!,
-          dioerror.response!.data!,
-        );
-      case DioExceptionType.cancel:
-        return ServiveFailure("Request with api server was cancled");
-      case DioExceptionType.connectionError:
-        return ServiveFailure("Connection error");
-      case DioExceptionType.unknown:
-        if (dioerror.message!.contains("SocketException")) {
-          return ServiveFailure("No Internet Connection");
+        final code = dioerror.response?.statusCode;
+        final data = dioerror.response?.data;
+        if (code != null && data != null) {
+          return ServiveFailure.badResponse(code, data);
         }
-        return ServiveFailure("Un Expected error , please try again");
-
-      default:
-        return ServiveFailure("Opps error");
+        return ServiveFailure('Bad response from server');
+      case DioExceptionType.cancel:
+        return ServiveFailure('Request was cancelled');
+      case DioExceptionType.connectionError:
+        return ServiveFailure('Connection error');
+      case DioExceptionType.unknown:
+        final msg = dioerror.message ?? '';
+        if (msg.contains('SocketException')) {
+          return ServiveFailure('No internet connection');
+        }
+        return ServiveFailure('Unexpected error, please try again');
     }
   }
 
-  factory ServiveFailure.badResponse(int? statscode, dynamic respone) {
-    String errorMessage = "An unknown error occurred.";
-
-    if (statscode == 400 || statscode == 401 || statscode == 403) {
-      if (respone is Map<String, dynamic>) {
-        if (respone.containsKey('error') && respone['error'] is Map) {
-          if (respone['error'].containsKey('message')) {
-            errorMessage = respone['error']['message'];
-          }
-        } else if (respone.containsKey('message')) {
-          errorMessage = respone['message'];
-        } else if (respone.containsKey('errors')) {
-          if (respone['errors'] is Map) {
-            errorMessage = respone['errors'].values.first.first;
-          } else {
-            errorMessage = "Invalid data provided.";
-          }
-        }
-      }
-      return ServiveFailure(errorMessage);
-    } else if (statscode == 404) {
-      return ServiveFailure("Your request was not found, please try again.");
-    } else if (statscode == 500) {
-      return ServiveFailure("Internal server error, please try again later.");
-    } else {
-      return ServiveFailure("Oops, something went wrong!");
+  factory ServiveFailure.badResponse(int? statusCode, dynamic response) {
+    final parsed = parseBackendErrorMessage(response);
+    if (parsed != null && parsed.isNotEmpty) {
+      return ServiveFailure(parsed);
     }
+
+    if (statusCode == 404) {
+      return ServiveFailure('Resource not found.');
+    }
+    if (statusCode == 500) {
+      return ServiveFailure('Internal server error, please try again later.');
+    }
+    return ServiveFailure('Something went wrong. Please try again.');
   }
 }

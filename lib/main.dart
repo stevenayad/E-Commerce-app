@@ -1,10 +1,15 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/api_servcies.dart/cache_helper.dart';
+import 'package:flutter_application_1/core/api_servcies.dart/dio_consumer.dart';
 import 'package:flutter_application_1/features/mainscreen/controller/navagationcontroller.dart';
+import 'package:flutter_application_1/features/mainscreen/data/repository/cart_repository/cart_repo_implementation.dart';
+import 'package:flutter_application_1/features/mainscreen/presentation/cubits/cart/cart_cubit.dart';
 import 'package:flutter_application_1/features/splah/presentation/splahview.dart';
 import 'package:flutter_application_1/utilis/apptheme.dart';
 import 'package:flutter_application_1/utilis/controller/themecontroller.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/features/splah/controller/authcontroller.dart';
 
@@ -18,7 +23,16 @@ void main() {
   Get.put(Themecontroller(), permanent: true);
   Get.put(Authcontroller(), permanent: true);
   Get.put(Navagationcontroller(), permanent: true);
-  runApp(const MyApp());
+
+  final apiConsumer = DioConsumer(Dio());
+  runApp(
+    BlocProvider(
+      create: (_) => CartCubit(
+            repo: CartRepoImplementation(apiConsumer: apiConsumer),
+          )..loadCart(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 void _setupWebDebugFilter() {

@@ -16,7 +16,7 @@ class AuthRepoImplementation implements AuthRepo {
   Future<Either<Failure, LoginModel>> Login(RequestLogin requestsignin) async {
     try {
       final response = await apiConsumer.post(
-        '/api/token/',
+        'token/',
         requestsignin.toJson(),
         false,
       );
@@ -38,7 +38,7 @@ class AuthRepoImplementation implements AuthRepo {
   ) async {
     try {
       final response = await apiConsumer.post(
-        '/api/register/',
+        'register/',
         requestsignup.toJson(),
         false,
       );

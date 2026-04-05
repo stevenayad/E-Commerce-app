@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/features/mainscreen/data/Model/product_model.dart';
+import 'package:flutter_application_1/features/mainscreen/presentation/productdetailsview.dart';
 import 'package:flutter_application_1/utilis/appstyle.dart';
 
 class ProductCard extends StatelessWidget {
@@ -19,7 +20,16 @@ class ProductCard extends StatelessWidget {
         ? "http://127.0.0.1:8000/${product.image}"
         : "https://via.placeholder.com/150";
 
-    return Container(
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (context) => Productdetailsview(productModel: product),
+          ),
+        );
+      },
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
       constraints: BoxConstraints(maxWidth: width * 0.9),
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
@@ -118,6 +128,7 @@ class ProductCard extends StatelessWidget {
           ),
         ],
       ),
+    ),
     );
   }
 }

@@ -12,7 +12,7 @@ class ProductRepoImplemtation implements product_repo {
   @override
   Future<Either<Failure, List<ProductModel>>> getallitem() async {
     try {
-      final respone = await apiConsumer.get('/api/product/');
+      final respone = await apiConsumer.get('product/');
       if (respone == null) {
         return Left(ServiveFailure("Invalid server response"));
       }
@@ -34,7 +34,7 @@ class ProductRepoImplemtation implements product_repo {
   ) async {
     try {
       final respone = await apiConsumer.get(
-        'api/product/filter?category=$category',
+        'product/filter?category=$category',
       );
 
       if (respone == null) {
@@ -58,7 +58,7 @@ class ProductRepoImplemtation implements product_repo {
   @override
   Future<Either<Failure, List<ProductModel>>> getpopularproduct() async {
     try {
-      final respone = await apiConsumer.get('api/product/Pagination/?page=1');
+      final respone = await apiConsumer.get('product/Pagination/?page=1');
 
       if (respone == null) {
         return Left(ServiveFailure("Invalid server response"));
@@ -81,7 +81,7 @@ class ProductRepoImplemtation implements product_repo {
   @override
   Future<Either<Failure, ProductModel>> getproductbyid(int id) async {
     try {
-      final respone = await apiConsumer.get('/api/product/$id');
+      final respone = await apiConsumer.get('product/$id');
       if (respone == null) {
         return Left(ServiveFailure("Invalid server response"));
       }
@@ -101,7 +101,7 @@ class ProductRepoImplemtation implements product_repo {
     String name,
   ) async {
     try {
-      final respone = await apiConsumer.get('/api/product/filter?keyword=$name');
+      final respone = await apiConsumer.get('product/filter?keyword=$name');
 
       if (respone == null) {
         return Left(ServiveFailure("Invalid server response"));
